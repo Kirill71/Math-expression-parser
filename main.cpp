@@ -6,9 +6,7 @@ using std::endl;
 
 int main()
 {
-	setlocale(LC_CTYPE, "Russian");
-	
-	string input_string("3+Ï");
+	string input_string("3+Ï*2");
 	input_string.shrink_to_fit();
 	Calculator obj1(input_string);
 	cout<<obj1.calculate()<<endl;
