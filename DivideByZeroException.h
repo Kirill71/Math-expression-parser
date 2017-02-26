@@ -8,6 +8,6 @@ using std::runtime_error;
 class DivedeByZeroException: public runtime_error
 {
 public:
-	DivedeByZeroException() :runtime_error("attempted to divide by zero") {};
+	DivedeByZeroException() :runtime_error("Attempted to divide by zero.") {};
 };
 #endif // !DIVISION_BY_ZERO_EXCEPTION_H
