@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(SRC
     Calculator.cpp
-        Expression.cpp
+    Expression.cpp
     ExpressionErrorController.cpp
     main.cpp
 )
@@ -21,6 +21,6 @@ set(HEAD
     UnknownOperatorException.h
     UnknownSyntaxException.h
     UnmatchedBracketsException.h
-        Definition.cpp
+    Definition.cpp
 )
 add_executable(${PROJECT_NAME} ${HEAD} ${SRC})
