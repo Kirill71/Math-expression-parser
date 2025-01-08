@@ -5,9 +5,9 @@
 
 using std::runtime_error;
 
-class UnknownSintaxException : public runtime_error
+class UnknownSyntaxException : public runtime_error
 {
 public:
-	UnknownSintaxException() : runtime_error("Unknown sintax.") {};
+	UnknownSyntaxException() : runtime_error("Unknown syntax.") {};
 };
 #endif // !UNKNOWN_SINTAX_EXCEPTION_H

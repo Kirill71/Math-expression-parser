@@ -11,6 +11,6 @@ int main()
 	input_string.shrink_to_fit();
 	Calculator obj1(input_string);
 	cout<<obj1.calculate()<<endl;
-	system("pause");
+
 	return 0;
 }

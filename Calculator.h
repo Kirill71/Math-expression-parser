@@ -3,7 +3,6 @@
 #define CALCULATOR_H
 
 #include<cctype>
-#include<conio.h>
 #include<memory>
 #include"Expression.h"
 #include"ExpressionErrorController.h"
@@ -26,13 +25,13 @@ private:
 	void factorial(double,stack<long double>&);
 	const string& result_front_view(double, string&);
 	const string& optimaze_front_view_result(string&);
-	double calculate_postfix_expression(); // вычисление постфиксной нотации
-	void calculation_inside_stack(stack<long double>&, const char*); //вычисления текущей операции на стеке
-	void operation(double&, double&, stack<long double>&);// извлечение операндов из стека перед вычислением
+	double calculate_postfix_expression(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	void calculation_inside_stack(stack<long double>&, const char*); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	void operation(double&, double&, stack<long double>&);// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	void operation(double&, stack<long double>&);
-	bool is_constant(char,stack<long double>&);// является ли константой данный символ( констант две: число Ейлера и число Пи);
-	double math_function(const string&,double); // вычисление результата математичесской функции
-	void calculate_in_math_functions(stack<stack<long double>>&, stack<string>&,const char*); // вычисление математического выражения (является частью метода calculate_postfix_expression)
+	bool is_constant(char,stack<long double>&);// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ( пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ);
+	double math_function(const string&,double); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	void calculate_in_math_functions(stack<stack<long double>>&, stack<string>&,const char*); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ calculate_postfix_expression)
 	std::unique_ptr<Expression> calc_expression; 
 	string result;
 };

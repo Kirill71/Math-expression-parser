@@ -1,4 +1,5 @@
 #include"Calculator.h"
+#include <cstring>
 
 Calculator::Calculator(const string& _exp) :calc_expression(std::make_unique<Expression>(_exp)), result() {}
 
@@ -19,7 +20,7 @@ const string& Calculator::calculate()
 	{
 		return ExpressionErrorController::exception_handling(ex, result);
 	}
-	catch (const UnknownSintaxException &ex)
+	catch (const UnknownSyntaxException &ex)
 	{
 		return ExpressionErrorController::exception_handling(ex, result);
 	}
@@ -59,12 +60,12 @@ const string & Calculator::result_front_view(double numeric_result, string & fro
 {
 	if ((numeric_result - int(numeric_result)) == 0.0)
 	{
-		front_view = move(to_string(static_cast<int>(numeric_result)));
+		front_view = std::move(to_string(static_cast<int>(numeric_result)));
 		return optimaze_front_view_result(result);
 	}
 	else
 	{
-		front_view = move(to_string(static_cast<float>(numeric_result)));
+		front_view = std::move(to_string(static_cast<float>(numeric_result)));
 		return optimaze_front_view_result(result);
 	}
 }
@@ -81,9 +82,8 @@ double Calculator::calculate_postfix_expression()
 	stack<string> math_functions_stack;
 	stack<stack< long double>> current_math_function_calculate_stack;
 	stack<long double> stack;
-	char* token_arr;
-	const char* token=strtok_s(const_cast<char*>(calc_expression->get_postfix_expression().c_str()),SPACE_C_STR,&token_arr);
-	while (token != nullptr) //пока есть лексемы
+	const char* token=std::strtok(const_cast<char*>(calc_expression->get_postfix_expression().c_str()),SPACE_C_STR);
+	while (token != nullptr) //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	{
 		if (is_alpha(token[0]) && token[0] != e) {math_functions_stack.push(token);current_math_function_calculate_stack.push(stack);}
 		else
@@ -103,7 +103,7 @@ double Calculator::calculate_postfix_expression()
 				if ( ExpressionErrorController::is_math_operator_or_fuctorial_op_persent(token[0])) calculate_in_math_functions(current_math_function_calculate_stack, math_functions_stack, token);
 			}
 		}
-		token = strtok_s(NULL, SPACE_C_STR,&token_arr);
+		token = std::strtok(nullptr, SPACE_C_STR);
 	}
 	return current_math_function_calculate_stack.top().top();
 }
@@ -143,7 +143,7 @@ void Calculator::operation(double &op2, stack<long double>& stack)
 bool Calculator::is_constant(char simbol, stack< long double>&stack)
 {
 	if (simbol == e) {stack.push(M_E); return true;}
-	if (simbol==П){stack.push(M_PI); return true;}
+	if (simbol== p){stack.push(M_PI); return true;}
 	return false;
 }
 

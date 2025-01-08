@@ -8,7 +8,7 @@
 #include"Definition.h"
 #include"UnmatchedBracketsException.h"
 #include"UnknownOperatorException.h"
-#include"UnknownSintaxException.h"
+#include"UnknownSyntaxException.h"
 
 using std::wstring;
 using std::string;

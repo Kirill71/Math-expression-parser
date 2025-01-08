@@ -1,6 +1,6 @@
 #include"Expression.h"
 
-Expression::Expression(const string& _exp) :infix_expression(move(_exp)), postfix_expression()
+Expression::Expression(const string& _exp) :infix_expression(std::move(_exp)), postfix_expression()
 {
 	infix_expression.shrink_to_fit();
 }
@@ -27,18 +27,18 @@ void Expression::convert_from_infix_to_postfix_notation()
 	/*while (token != nullptr)
 	{
 		str = token;
-			if (token[0] == П || isalnum(token[0])) postfix_expression.push_back+=str; postfix_expression.push_back(SPACE);
+			if (token[0] == пїЅ || isalnum(token[0])) postfix_expression.push_back+=str; postfix_expression.push_back(SPACE);
 
 
 	}*/
 	for (size_t i(0); i < size; ++i)
 	{
-		if (infix_expression[i] == П || isdigit(infix_expression[i]) || is_point(infix_expression[i]) ||
+		if (infix_expression[i] == p || isdigit(infix_expression[i]) || is_point(infix_expression[i]) ||
 			is_alpha(infix_expression[i]))
 		{
-			if (infix_expression[i] == COMA) postfix_expression.push_back(POINT); // проверяю какой разделитель используется. Если ',' - меняю на '.'.(Осталось с консольной версии. Вероятно в gui версии не пригодится.)
+			if (infix_expression[i] == COMA) postfix_expression.push_back(POINT); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅ ',' - пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ '.'.(пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ gui пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.)
 			else
-				postfix_expression.push_back(infix_expression[i]); // если число сразу добавляю его в выходную строку - postfix_expression.
+				postfix_expression.push_back(infix_expression[i]); // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - postfix_expression.
 		}
 		else
 		{
@@ -50,7 +50,7 @@ void Expression::convert_from_infix_to_postfix_notation()
 				}
 			}
 
-			if (postfix_expression.size() > 0 && postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE); // между символами выходной строки ставлю по одному пробелу - что бы было удобнее парсить.
+			if (postfix_expression.size() > 0 && postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 			if (infix_expression[i] == LEFT_BRACKET)
 			{
 				if (i != 0 && is_alpha(infix_expression[i - 1]))
@@ -61,7 +61,7 @@ void Expression::convert_from_infix_to_postfix_notation()
 				}
 				++opened_left_brackets;
 			}
-			if (infix_expression[i] == RIGHT_BRACKET)	//  Проверка скобок.
+			if (infix_expression[i] == RIGHT_BRACKET)	//  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
 			{
 				while (stack.top() != LEFT_BRACKET)
 				{
@@ -72,11 +72,11 @@ void Expression::convert_from_infix_to_postfix_notation()
 				if (current_math_function != 0 && opened_left_brackets == 1 || (current_math_function >= 2 && opened_left_brackets >= 2)) { postfix_expression.push_back(RIGHT_FUNCTION_BRACKET); --opened_left_brackets; --current_math_function; }
 				else --opened_left_brackets;
 			}
-			else									// если это не скобка - значит это оператор, тогда проверяю его приоритетность и добавляю после этого в стек.
+			else									// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ.
 			{
 				if (stack.top() != SPACE)
 				{
-					if (priority(infix_expression[i]) <= priority(stack.top()) && (infix_expression[i] != LEFT_BRACKET))// проверяю не являюется ли входной символ левой скобкой, что бы не портила приоритетность
+					if (priority(infix_expression[i]) <= priority(stack.top()) && (infix_expression[i] != LEFT_BRACKET))// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					{
 						from_stack_to_out_str(postfix_expression, stack);
 						if (postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE);
@@ -86,7 +86,7 @@ void Expression::convert_from_infix_to_postfix_notation()
 			}
 		}
 	}
-	while (stack.size() > 1) //поюзать empty // выталкиваю элементы из стека в выходную строку
+	while (stack.size() > 1) //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ empty // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 	{
 		if (postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE);
 		from_stack_to_out_str(postfix_expression, stack);

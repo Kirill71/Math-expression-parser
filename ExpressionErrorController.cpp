@@ -25,7 +25,7 @@ bool ExpressionErrorController::is_operator(const char functor)
 	case LEFT_BRACKET:case RIGHT_BRACKET:
 	case LEFT_FUNCTION_BRACKET: case RIGHT_FUNCTION_BRACKET:
 	case SPACE:case ALPHABET_BEGIN: case ALPHABET_END:
-	case e: case Ï: case FACTORIAL: case PERSENT:
+	case e: case p: case FACTORIAL: case PERSENT:
 		return true;
 	default:
 		return false;
@@ -51,10 +51,10 @@ void ExpressionErrorController::check_all_errors(const string & str)
 	size_t size= str.size();
 	stack<char> stack;
 	
-	if (is_math_operator(str[size - 1])) throw UnknownSintaxException();
+	if (is_math_operator(str[size - 1])) throw UnknownSyntaxException();
 	for (size_t i(0); i < size; ++i)
 	{
-		if (is_math_operator(str[i]) && is_math_operator(str[i + 1])&&i<size-1) throw UnknownSintaxException();
+		if (is_math_operator(str[i]) && is_math_operator(str[i + 1])&&i<size-1) throw UnknownSyntaxException();
 		if (!is_known_operator(str[i]) && !isdigit(str[i]) && !is_alpha(str[i])) throw  UnknownOperatorException();
 		if (str[i] == LEFT_BRACKET) stack.push(str[i]);
 		else

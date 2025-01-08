@@ -16,7 +16,7 @@ bool is_point(const char simbol)
 
 bool is_digit(const char simbol)
 {
-	return (simbol != Ï&&isdigit(simbol));
+	return (simbol != p && isdigit(simbol));
 }
 
 bool is_digit(const char* str)

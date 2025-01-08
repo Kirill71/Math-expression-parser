@@ -8,7 +8,7 @@
 using std::string;
 
 #define  ERROR_FAILURE 17;
-// строковые определения.
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 #define LEFT_BRACKET_C_STR "("
 #define ADDITION_C_STR "+"
 #define DEDACTION_C_STR "-"
@@ -24,11 +24,11 @@ using std::string;
 #define ALPHABET_END 'z'
 #define LEFT_FUNCTION_BRACKET_C_STR "["
 #define RIGHT_FUNCTION_BRACKET_C_STR "]"
-#define FACTORIAL_C_STR "!" //зарезервировано
-#define PERSENT_C_STR "%"	//зарезервировано
+#define FACTORIAL_C_STR "!" //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+#define PERSENT_C_STR "%"	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //constants
 #define	e_C_STR	"e"
-#define	П_C_STR	"п"
+#define	p_C_STR	"p"
 #define LEFT_BRACKET '('
 #define ADDITION '+'
 #define DEDACTION '-'
@@ -44,11 +44,11 @@ using std::string;
 #define ALPHABET_END 'z'
 #define LEFT_FUNCTION_BRACKET '['
 #define RIGHT_FUNCTION_BRACKET ']'
-#define FACTORIAL '!' //зарезервировано
-#define PERSENT '%'	//зарезервировано
+#define FACTORIAL '!' //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+#define PERSENT '%'	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 //constants
 #define	e	'e'
-#define	П	'п'
+#define	p	'p'
 //math_functions
 #define SIN "sin"
 #define COS "cos"
@@ -71,7 +71,7 @@ using std::string;
 #define ACOSH "acosh"
 #define ATANH "atgh"
 #define ACTANH "actgh"
-#define MOD "mod" // зарезервировано
+#define MOD "mod" // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 bool is_alpha(const char);
 bool is_point(const char);
