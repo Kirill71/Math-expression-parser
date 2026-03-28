@@ -1,17 +1,9 @@
-#ifndef DEFINITION
-#define DEFINITION
-#define _USE_MATH_DEFINES
-#include<iostream>
-#include<math.h>
-#include<ctype.h>
+#pragma once
+#include <string>
 
-using std::string;
-
-#define  ERROR_FAILURE 17;
-// ��������� �����������.
 #define LEFT_BRACKET_C_STR "("
 #define ADDITION_C_STR "+"
-#define DEDACTION_C_STR "-"
+#define DEDUCTION_C_STR "-"
 #define MULTIPLE_C_STR "*"
 #define DIVISION_C_STR "/"
 #define RIGHT_BRACKET_C_STR ")"
@@ -24,14 +16,14 @@ using std::string;
 #define ALPHABET_END 'z'
 #define LEFT_FUNCTION_BRACKET_C_STR "["
 #define RIGHT_FUNCTION_BRACKET_C_STR "]"
-#define FACTORIAL_C_STR "!" //���������������
-#define PERSENT_C_STR "%"	//���������������
+#define FACTORIAL_C_STR "!"
+#define PERCENT_C_STR "%"
 //constants
 #define	e_C_STR	"e"
 #define	p_C_STR	"p"
 #define LEFT_BRACKET '('
 #define ADDITION '+'
-#define DEDACTION '-'
+#define DEDUCTION '-'
 #define MULTIPLE '*'
 #define DIVISION '/'
 #define RIGHT_BRACKET ')'
@@ -44,11 +36,11 @@ using std::string;
 #define ALPHABET_END 'z'
 #define LEFT_FUNCTION_BRACKET '['
 #define RIGHT_FUNCTION_BRACKET ']'
-#define FACTORIAL '!' //���������������
-#define PERSENT '%'	//���������������
+#define FACTORIAL '!'
+#define PERCENT '%'
 //constants
-#define	e	'e'
-#define	p	'p'
+#define	e_num	'e'
+#define	p_num	'p'
 //math_functions
 #define SIN "sin"
 #define COS "cos"
@@ -70,20 +62,12 @@ using std::string;
 #define ASINH "asinh"
 #define ACOSH "acosh"
 #define ATANH "atgh"
-#define ACTANH "actgh"
-#define MOD "mod" // ���������������
+#define ARCTANH "actgh"
+#define MOD "mod"
 
-bool is_alpha(const char);
-bool is_point(const char);
-bool is_digit(const char);
+bool is_alpha(char);
+bool is_point(char);
 bool is_digit(const char*);
-bool is_digit_or_alpha(const string::const_iterator &);
-bool is_operator(const string::const_iterator &);
-bool is_bracket(const string::const_iterator &);
-size_t group_number(const string::const_iterator &);
-bool is_unary_minus(const string::const_iterator &);
-size_t simbol_type(const string::const_iterator &);
-#endif // !DEFINITION
 
 
 
