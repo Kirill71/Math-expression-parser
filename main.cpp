@@ -16,7 +16,7 @@ int main()
 	};
 
 	std::string input_string;
-	std::cout << "input calculation expression:" << std::endl;
+	std::cout << "input math expression:" << std::endl;
 	std::getline(std::cin, input_string);
 	input_string.shrink_to_fit();
 
