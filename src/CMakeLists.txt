@@ -9,7 +9,7 @@ endif()
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        Calculator.cpp
+        MathExpressionParser.cpp
         Definition.cpp
         Definition.h
         Expression.cpp
@@ -19,5 +19,5 @@ target_sources(${PROJECT_NAME}
         MathExpressionException.h
     PUBLIC
         FILE_SET HEADERS FILES
-        Calculator.h
+        MathExpressionParser.h
 )

@@ -1,4 +1,5 @@
-#include "src/Calculator.h"
+#include "src/MathExpressionParser.h"
+#include <iostream>
 
 int main()
 {
@@ -19,8 +20,8 @@ int main()
 	std::getline(std::cin, input_string);
 	input_string.shrink_to_fit();
 
-	Calculator obj1{};
-	std::cout<<obj1.calculate(validate(input_string))<< std::endl;
+	MathExpressionParser parser{};
+	std::cout<<parser.eval(validate(input_string))<< std::endl;
 
 	return 0;
 }

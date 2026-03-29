@@ -4,12 +4,12 @@
 #include <numbers>
 #include "Expression.h"
 
-class Calculator
+class MathExpressionParser
 {
 	static constexpr auto PI = std::numbers::pi;
 	static constexpr auto E = std::numbers::e;
 public:
-	std::string calculate(const std::string& _exp);
+	std::string eval(const std::string& _exp);
 private:
 	void factorial(double, std::stack<long double>&);
 	const std::string& result_front_view(double, std::string&);

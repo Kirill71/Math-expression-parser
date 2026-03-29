@@ -1,14 +1,15 @@
-#include "Calculator.h"
+#include "MathExpressionParser.h"
 #include "MathExpressionException.h"
 #include "ExpressionErrorController.h"
+#include "Definition.h"
 
 #include <cstring>
 #include <cmath>
 
-std::string Calculator::calculate(const std::string& _exp)
+std::string MathExpressionParser::eval(const std::string& _exp)
 {
-	double numeric_result;
-	std::string result;
+	double numeric_result{};
+	std::string result{};
 	try
 	{
 		calc_expression = std::make_unique<Expression>(_exp);
@@ -47,7 +48,7 @@ std::string Calculator::calculate(const std::string& _exp)
 	return result_front_view(numeric_result, result);
 }
 
-void Calculator::factorial(const double op2, std::stack<long double>& stack)
+void MathExpressionParser::factorial(const double op2, std::stack<long double>& stack)
 {
 	long long factorial{1};
 	for (size_t i = 1; i <= static_cast<size_t>(op2); ++i)
@@ -55,7 +56,7 @@ void Calculator::factorial(const double op2, std::stack<long double>& stack)
 	stack.push(factorial);
 }
 
-const std::string & Calculator::result_front_view(const double numeric_result, std::string& front_view)
+const std::string & MathExpressionParser::result_front_view(const double numeric_result, std::string& front_view)
 {
 	const double remainder = numeric_result - static_cast<int>(numeric_result);
 	if (remainder <= std::numeric_limits<double>::epsilon())
@@ -70,7 +71,7 @@ const std::string & Calculator::result_front_view(const double numeric_result, s
 	return front_view;
 }
 
-double Calculator::calculate_postfix_expression()
+double MathExpressionParser::calculate_postfix_expression()
 {
 	bool is_only_arithmetic_expression(true);
 	std::stack<std::string> math_functions_stack;
@@ -99,10 +100,10 @@ double Calculator::calculate_postfix_expression()
 		}
 		token = std::strtok(nullptr, SPACE_C_STR);
 	}
-	return current_math_function_calculate_stack.top().top();
+	return static_cast<double>(current_math_function_calculate_stack.top().top());
 }
 
-void Calculator::calculation_inside_stack(std::stack<long double>&stack, const char *token)
+void MathExpressionParser::calculation_inside_stack(std::stack<long double>&stack, const char *token)
 {
 	double op1(0), op2(0);
 	if (token[0] == FACTORIAL || token[0] == PERCENT) operation(op2, stack);
@@ -120,29 +121,28 @@ void Calculator::calculation_inside_stack(std::stack<long double>&stack, const c
 	}
 }
 
-void  Calculator::operation(double& op1, double& op2, std::stack<long double>& stack)
+void  MathExpressionParser::operation(double& op1, double& op2, std::stack<long double>& stack)
 {
 	operation(op2, stack);
-	op1 = stack.top();
+	op1 = static_cast<double>(stack.top());
 	stack.pop();
 }
 
-void Calculator::operation(double &op2, std::stack<long double>& stack)
+void MathExpressionParser::operation(double &op2, std::stack<long double>& stack)
 {
-	op2 = stack.top();
+	op2 = static_cast<double>(stack.top());
 	stack.pop();
 }
 
-bool Calculator::is_constant(const char symbol, std::stack<long double>&stack)
+bool MathExpressionParser::is_constant(const char symbol, std::stack<long double>&stack)
 {
 	if (symbol == e_num) {stack.push(E); return true;}
 	if (symbol== p_num){stack.push(PI); return true;}
 	return false;
 }
 
-double Calculator::math_function(const std::string & math_func_str, const double value)
+double MathExpressionParser::math_function(const std::string & math_func_str, const double value)
 {
-
 	const double radian_value = value * PI / 180;
 	if (math_func_str == SIN) return std::sin(radian_value);
 	if (math_func_str == COS) return std::cos(radian_value);
@@ -168,7 +168,7 @@ double Calculator::math_function(const std::string & math_func_str, const double
 	return -1.0;
 }
 
-void Calculator::calculate_in_math_functions(std::stack<std::stack<long double>>&current_math_function_calculate_stack, std::stack<std::string>&math_functions_stack, const char* token)
+void MathExpressionParser::calculate_in_math_functions(std::stack<std::stack<long double>>&current_math_function_calculate_stack, std::stack<std::string>&math_functions_stack, const char* token)
 {
 	double math_result(0);
 	bool parametr(false);

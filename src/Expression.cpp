@@ -1,5 +1,5 @@
 #include "Expression.h"
-
+#include "Definition.h"
 #include <utility>
 
 Expression::Expression(std::string _exp) : infix_expression(std::move(_exp))
@@ -35,7 +35,7 @@ void Expression::convert_from_infix_to_postfix_notation()
 				}
 			}
 
-			if (postfix_expression.size() > 0 && postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE);
+			if (!postfix_expression.empty() && postfix_expression.back() != SPACE) postfix_expression.push_back(SPACE);
 			if (infix_expression[i] == LEFT_BRACKET)
 			{
 				if (i != 0 && is_alpha(infix_expression[i - 1]))
@@ -46,7 +46,7 @@ void Expression::convert_from_infix_to_postfix_notation()
 				}
 				++opened_left_brackets;
 			}
-			if (infix_expression[i] == RIGHT_BRACKET)	//  �������� ������.
+			if (infix_expression[i] == RIGHT_BRACKET)
 			{
 				while (stack.top() != LEFT_BRACKET)
 				{
@@ -103,7 +103,7 @@ size_t Expression::priority(const char operand) const
 	}
 }
 
-void  Expression::from_stack_to_out_str(std::string& _postfix_expression, std::stack<char>& stack)
+void Expression::from_stack_to_out_str(std::string& _postfix_expression, std::stack<char>& stack)
 {
 	_postfix_expression.push_back(stack.top());
 	stack.pop();

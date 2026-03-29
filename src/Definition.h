@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 
 #define LEFT_BRACKET_C_STR "("
 #define ADDITION_C_STR "+"

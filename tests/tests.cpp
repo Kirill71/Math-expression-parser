@@ -1,4 +1,4 @@
-#include "Calculator.h"
+#include "MathExpressionParser.h"
 
 #include <gtest/gtest.h>
 
@@ -8,12 +8,12 @@ struct MathExpressionParams {
 };
 class MathExpression: public ::testing::TestWithParam<MathExpressionParams> {
 protected:
-    Calculator calculator;
+    MathExpressionParser calculator;
 };
 
 TEST_P(MathExpression, SimpleExpressionCheck) {
     auto [expression, result] = GetParam();
-    EXPECT_EQ(result, calculator.calculate(expression));
+    EXPECT_EQ(result, calculator.eval(expression));
 }
 
 INSTANTIATE_TEST_SUITE_P(SimpleOperations, MathExpression,
