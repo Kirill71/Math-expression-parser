@@ -31,7 +31,14 @@ void Expression::convert_from_infix_to_postfix_notation()
 			{
 				if (i == 0 || infix_expression[i - 1] == LEFT_BRACKET)
 				{
-					postfix_expression.push_back(DEDUCTION); continue;
+					if (i + 1 < n && (infix_expression[i + 1] == LEFT_BRACKET || is_alpha(infix_expression[i + 1])))
+					{
+						postfix_expression.push_back('0');
+					}
+					else
+					{
+						postfix_expression.push_back(DEDUCTION); continue;
+					}
 				}
 			}
 
@@ -98,6 +105,10 @@ size_t Expression::priority(const char operand) const
 
 	case POWER:
 	{ return 4;}
+
+	case FACTORIAL:
+	case PERCENT:
+	{ return 5;}
 
 	default: { return -1; }
 	}

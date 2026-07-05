@@ -50,10 +50,12 @@ std::string MathExpressionParser::eval(const std::string& _exp)
 
 void MathExpressionParser::factorial(const double op2, std::stack<long double>& stack)
 {
+	const bool is_negative = op2 < 0;
+	const double magnitude = std::fabs(op2);
 	long long factorial{1};
-	for (size_t i = 1; i <= static_cast<size_t>(op2); ++i)
+	for (size_t i = 1; i <= static_cast<size_t>(magnitude); ++i)
 		factorial *= static_cast<long long>(i);
-	stack.push(factorial);
+	stack.push(is_negative ? -factorial : factorial);
 }
 
 const std::string & MathExpressionParser::result_front_view(const double numeric_result, std::string& front_view)
@@ -116,7 +118,7 @@ void MathExpressionParser::calculation_inside_stack(std::stack<long double>&stac
 		case DIVISION: {if (op2 == 0.0) throw DivideByZeroException(); stack.push(op1 / op2); break; }
 		case POWER: {stack.push(pow(op1, op2)); break;}
 		case FACTORIAL: {factorial(op2, stack); break;}
-		case PERCENT: { stack.push(op2 / 100.0); break; }
+		case PERCENT: { stack.push(stack.empty() ? op2 / 100.0 : static_cast<double>(stack.top()) * op2 / 100.0); break; }
 		default:;
 	}
 }
